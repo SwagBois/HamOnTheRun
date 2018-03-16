@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        gameObject.GetComponent<Renderer>().material.color = Color.red;
+        //gameObject.GetComponent<Renderer>().material.color = Color.red;
 
         playerRigidbody = GetComponent<Rigidbody>();
     }
