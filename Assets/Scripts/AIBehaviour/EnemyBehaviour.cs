@@ -13,7 +13,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private UnityEngine.AI.NavMeshAgent navMeshAgent;
     private int currWaypoint;
-    private float threshHold;
+    //private float threshHold;
     private bool lastWaypointReached;
 
     public enum AIState
@@ -29,9 +29,9 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Start()
     {
-        threshHold = 0.5f;
+        //threshHold = 0.5f;
         currWaypoint = 0;
-        aiState = AIState.InterceptTarget;
+        aiState = AIState.Patrol;
         setNextWaypoint();
     }
 
@@ -40,7 +40,7 @@ public class EnemyBehaviour : MonoBehaviour
         
         if (aiState == AIState.Patrol)
         {
-            if (navMeshAgent.remainingDistance < threshHold)
+            if (navMeshAgent.remainingDistance == 0)
             {
                 setNextWaypoint();
             }
@@ -61,16 +61,17 @@ public class EnemyBehaviour : MonoBehaviour
             Debug.LogError("array of waypoints has length zero.");
             return;
         }
-        if (lastWaypointReached)
+        /*if (lastWaypointReached)
         {
             aiState = AIState.InterceptTarget;
-        }
-        if (waypoints.Length <= currWaypoint)
+        }*/
+        if (currWaypoint >= waypoints.Length)
         {
             currWaypoint = 0;
             lastWaypointReached = true;
             //After one patrol session we can now allow the agent to go to enemy target location
         }
+
         navMeshAgent.SetDestination(waypoints[currWaypoint].transform.position);
         currWaypoint += 1;
     }
