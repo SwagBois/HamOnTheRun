@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     Rigidbody playerRigidbody;
-    Vector3 movement;
     
     float forwardMaxSpeed = 5f;
     float turnMaxSpeed = 80f;

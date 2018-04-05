@@ -15,11 +15,17 @@ public class EnemyBehaviour : MonoBehaviour
     private int currWaypoint;
     //private float threshHold;
     private bool lastWaypointReached;
+    private float fov = 60f;
+    private Vector3 last_seen_target_pos;
+    private Vector3 last_seen_target_vel;
 
     public enum AIState
     {
         Patrol,
-        InterceptTarget
+        InterceptTarget,
+        //Reset State for now allows the AI to go back to patrolling after reaching the target
+        //Or the last seen location of the target.
+        Reset
     };
 
     void Awake()
@@ -32,15 +38,30 @@ public class EnemyBehaviour : MonoBehaviour
         //threshHold = 0.5f;
         currWaypoint = 0;
         aiState = AIState.Patrol;
-        setNextWaypoint();
     }
 
     void Update()
     {
-        
         if (aiState == AIState.Patrol)
         {
-            if (navMeshAgent.remainingDistance == 0)
+            if (target != null)
+            {
+                Vector3 deltaV = target.transform.position - this.transform.position;
+                float angle = Vector3.Angle(deltaV, this.transform.forward);
+                if (angle >= - fov && angle <= fov)
+                {
+                    RaycastHit hit;
+                    if (Physics.Raycast(this.transform.position, deltaV, out hit))
+                    {
+                        if (hit.transform.tag == "Player")
+                        {
+                            aiState = AIState.InterceptTarget;
+                            followTarget();
+                        }
+                    }
+                }
+            }
+            if (navMeshAgent.remainingDistance == 0f)
             {
                 setNextWaypoint();
             }
@@ -50,6 +71,19 @@ public class EnemyBehaviour : MonoBehaviour
             if (target != null)
             {
                 followTarget();
+            }
+        }
+        else if (aiState == AIState.Reset)
+        {
+            Vector3 deltaV = target.transform.position - this.transform.position;
+            float angle = Vector3.Angle(deltaV, this.transform.forward);
+            if (angle <= -fov || angle >= fov)
+            {
+                aiState = AIState.Patrol;
+            }
+            else
+            {
+                transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * 40f, Space.World);
             }
         }
     }
@@ -68,30 +102,66 @@ public class EnemyBehaviour : MonoBehaviour
         if (currWaypoint >= waypoints.Length)
         {
             currWaypoint = 0;
-            lastWaypointReached = true;
             //After one patrol session we can now allow the agent to go to enemy target location
         }
-
         navMeshAgent.SetDestination(waypoints[currWaypoint].transform.position);
         currWaypoint += 1;
     }
 
     private void followTarget()
     {
-        if (navMeshAgent.remainingDistance < target.GetComponent<CapsuleCollider>().radius * 3)
+        if (navMeshAgent.remainingDistance > 10f)
         {
-            aiState = AIState.Patrol;
-            lastWaypointReached = false;
+            aiState = AIState.Reset;
             currWaypoint = 0;
             navMeshAgent.SetDestination(this.transform.position);
             return;
         }
+        if (navMeshAgent.remainingDistance < target.GetComponent<CapsuleCollider>().radius * 2f)
+        {
+            Vector3 deltaV = target.transform.position - this.transform.position;
+            float angle = Vector3.Angle(deltaV, this.transform.forward);
+            if (angle >= -fov && angle <= fov)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(this.transform.position, deltaV, out hit, target.GetComponent<CapsuleCollider>().radius * 2f))
+                {
+                    // Future edits such that event trigger happens to state player has been captured and he looses health/losses game
+                    if (hit.transform.tag == "Player")
+                    {
+                        Debug.LogWarning("player captured");
+                    }
+                    else
+                    {
+                        Debug.LogWarning("player not found");
+                    }
+                }
+            }
+            aiState = AIState.Reset;
+            currWaypoint = 0;
+            navMeshAgent.SetDestination(this.transform.position);
+            return;
+        }
+        else
+        {
+            Vector3 deltaV = target.transform.position - this.transform.position;
+            float angle = Vector3.Angle(deltaV, this.transform.forward);
+            if (angle >= -fov && angle <= fov)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(this.transform.position, deltaV, out hit))
+                {
+                    if (hit.transform.tag == "Player")
+                    {
+                        last_seen_target_pos = target.transform.position;
+                        navMeshAgent.SetDestination(last_seen_target_pos);
+                    }
+                }
+            }
+            Vector3 last_seen_pos = last_seen_target_pos;
+            navMeshAgent.SetDestination(last_seen_pos);
+        }
         // assume acceleration is zero due to the time difference in time between frames is small
-        Vector3 target_pos = target.transform.position;
-        Vector3 curr_pos = this.transform.position;
-        Vector3 target_vel = target.GetComponent<UnityEngine.AI.NavMeshAgent>().velocity;
-        Vector3 prediction_pos = target_pos + target_vel;
-        navMeshAgent.SetDestination(prediction_pos);
     }
 }
 
