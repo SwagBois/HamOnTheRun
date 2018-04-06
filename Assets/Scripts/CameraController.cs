@@ -6,23 +6,23 @@ public class CameraController : MonoBehaviour {
 
     public GameObject player;
 
-    private float y_rot = 180;
-    private float x_rot = 60;
-
     private Vector3 offset;
-    private Vector3 zero_v;
+    private float damping = 1;
 	// Use this for initialization
 	void Start ()
     {
-        transform.rotation = Quaternion.FromToRotation(transform.position, zero_v);
-        transform.Rotate(x_rot, y_rot, 0);
-        transform.position = player.transform.position;
-        transform.position = new Vector3(transform.position.x, transform.position.y + 10f, transform.position.z + 5f);
-        offset = transform.position - player.transform.position;
+        offset = player.transform.position - transform.position;
     }
 	
 	// Update is called once per frame
 	void LateUpdate () {
-        transform.position = player.transform.position + offset;
-	}
+        float currentAngle = transform.eulerAngles.y;
+        float desiredAngle = player.transform.eulerAngles.y;
+        float angle = Mathf.LerpAngle(currentAngle, desiredAngle, damping);
+
+        Quaternion rotation = Quaternion.Euler(0, angle, 0);
+        transform.position = player.transform.position - (rotation * offset);
+
+        transform.LookAt(player.transform.position);
+    }
 }

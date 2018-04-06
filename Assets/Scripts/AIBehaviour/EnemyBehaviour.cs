@@ -75,16 +75,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
         else if (aiState == AIState.Reset)
         {
-            Vector3 deltaV = target.transform.position - this.transform.position;
-            float angle = Vector3.Angle(deltaV, this.transform.forward);
-            if (angle <= -fov || angle >= fov)
-            {
-                aiState = AIState.Patrol;
-            }
-            else
-            {
-                transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * 40f, Space.World);
-            }
+            aiState = AIState.Patrol;
         }
     }
 
