@@ -2,52 +2,85 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementController : MonoBehaviour {
+public class MovementController : MonoBehaviour
+{
 
-    public float speed = 5;
-    public GameObject mainCamera;
-    private Vector3[][] direction;
-    private PlayerController player;
+    public float jumpForce = 2.0f;
+
+    Rigidbody playerRigidbody;
+    Vector3 movement;
+    PlayerController player;
+
+    float forwardMaxSpeed = 5f;
+    float turnMaxSpeed = 80f;
+
+    private float filteredForwardInput = 0f;
+    private float filteredTurnInput = 0f;
+
+    public float forwardInputFilter = 5f;
+    public float turnInputFilter = 5f;
+
+    private float inputForward = 0f;
+    private float inputTurn = 0f;
+
+    private bool isgrounded;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
+        playerRigidbody = GetComponent<Rigidbody>();
         player = GetComponent<PlayerController>();
-        Vector3[] d0 = new Vector3[4] {Vector3.right, Vector3.left, Vector3.forward, Vector3.back };
-        Vector3[] d1 = new Vector3[4] { Vector3.back, Vector3.forward, Vector3.right, Vector3.left };
-        Vector3[] d2 = new Vector3[4] { Vector3.left, Vector3.right, Vector3.back, Vector3.forward };
-        Vector3[] d3 = new Vector3[4] { Vector3.forward, Vector3.back, Vector3.left, Vector3.right };
-        direction = new Vector3[4][];
-        direction[0] = d0;
-        direction[1] = d1;
-        direction[2] = d2;
-        direction[3] = d3;
+        isgrounded = false;
     }
-	
-	// Update is called once per frame
-	void Update () {
-        int index = mainCamera.GetComponent<CameraController>().getIndex();
 
-        if (Input.GetKey(KeyCode.RightArrow))
+    void OnCollisionEnter(Collision theCollision)
+    {
+        if (theCollision.gameObject.tag == "Floor")
         {
-            transform.Translate(speed * direction[index][0] * Time.deltaTime);
+            isgrounded = true;
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+    }
+
+    void OnCollisionExit(Collision theCollision)
+    {
+        if (theCollision.gameObject.tag == "Floor")
         {
-            transform.Translate(speed * direction[index][1] * Time.deltaTime);
+            isgrounded = false;
         }
-        if (Input.GetKey(KeyCode.UpArrow))
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+
+        if (Input.GetKey(KeyCode.Q))
         {
-            transform.Translate(speed * direction[index][2] * Time.deltaTime);
+            h = -0.5f;
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKey(KeyCode.E))
         {
-            transform.Translate(speed * direction[index][3] * Time.deltaTime);
+            h = 0.5f;
         }
 
-        if(player.getIndex() == 1 && Input.GetKey(KeyCode.Space))
+        if (player.getIndex() == 1 && Input.GetKey(KeyCode.Space) && isgrounded)
         {
-            transform.Translate(6 * Vector3.up * Time.deltaTime);
+            playerRigidbody.AddForce(new Vector3(0.0f, 3.0f, 0.0f) * jumpForce, ForceMode.Impulse);
         }
+
+        filteredForwardInput = Mathf.Clamp(Mathf.Lerp(filteredForwardInput, v,
+            Time.deltaTime * forwardInputFilter), -forwardMaxSpeed, forwardMaxSpeed);
+
+        filteredTurnInput = Mathf.Lerp(filteredTurnInput, h,
+            Time.deltaTime * turnInputFilter);
+
+        inputForward = filteredForwardInput;
+        inputTurn = filteredTurnInput;
+
+        playerRigidbody.MovePosition(playerRigidbody.position + this.transform.forward * inputForward * Time.deltaTime * forwardMaxSpeed);
+        playerRigidbody.MoveRotation(playerRigidbody.rotation * Quaternion.AngleAxis(inputTurn * Time.deltaTime * turnMaxSpeed, Vector3.up));
 
     }
 }
