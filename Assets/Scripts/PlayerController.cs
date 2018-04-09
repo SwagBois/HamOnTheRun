@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     private GameObject[] pigs;
     private int addIndex = 0;
     private int index = 0;
+    private int timer = 0;
 
     // Use this for initialization
     void Start () {
@@ -17,18 +18,49 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(Input.GetKey(KeyCode.X))
+
+        /*for(int i = 1; i < pigs.Length; i++)
+        {
+            if(pigs[i] != null)
+            {
+                pigs[i].transform.position = this.transform.position;
+                pigs[i].transform.rotation = this.transform.rotation;
+            }
+        }*/
+        timer++;
+        print(timer);
+
+        // can only switch once every 4 seconds.
+        if(timer > 240 && Input.GetKey(KeyCode.X))
         {
             //pigs[index].GetComponentInChildren<MeshRenderer>().enabled = false;
-            
+            //pigs[index].SetActive(false);
             index++;
             if(index >= addIndex)
             {
                 index = 0;
             }
-            
+            //pigs[index].SetActive(true);
+            timer = 0;
         }
-        print(index);
+
+        if(index == 0)
+        {
+            GetComponentInChildren<Renderer>().material.color = new Color(0.8f, 0.389f, 0.727f, 0.8f);
+            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        }
+        else if(index == 1)
+        {
+            GetComponentInChildren<Renderer>().material.color = new Color(1, 0, 0);
+            transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        }
+        else if (index == 2)
+        {
+            // TODO. 3rd pig
+        }
+
+        //print(index);
+
     }
 
     private void OnTriggerEnter(Collider other)
