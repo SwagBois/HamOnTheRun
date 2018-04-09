@@ -40,17 +40,17 @@ public class PigController : MonoBehaviour
 		}
 
 		if ( vertical < 0 )
-            velocity = vertical * Time.deltaTime * 12.5f;
+            velocity = vertical * Time.deltaTime * 5.5f;
 		else if ( vertical > 0  )
-            velocity = vertical * Time.deltaTime * 15.0f;
+            velocity = vertical * Time.deltaTime * 8.0f;
     }
 
     // Performs fixed interval physics updates on RigidBody
     void FixedUpdate()
     {
-    transform.Rotate( 0, rotation, 0 );
-    transform.Translate( 0, 0, velocity );
-	anim.SetBool ("isWalking", false);
+        transform.Rotate( 0, rotation, 0 );
+        transform.Translate( 0, 0, velocity );
+	    anim.SetBool ("isWalking", false);
         if ( isGrounded )
             rb.AddForce( transform.up * thrust, ForceMode.Impulse );
     }
