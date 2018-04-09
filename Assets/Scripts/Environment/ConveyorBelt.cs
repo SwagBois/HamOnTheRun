@@ -5,9 +5,8 @@ using UnityEngine;
 // Simple conveyor belt
 public class ConveyorBelt : MonoBehaviour
 {
-
-    // BoxCollider bc;
-    public GameObject belt, sw;
+    // Belt trigger collider is 0.98 of X and 0.8 of Z for best detection
+    public GameObject belt;
 
     // Change in direction swaps endpoints
     public bool direction;
@@ -18,11 +17,21 @@ public class ConveyorBelt : MonoBehaviour
     // Moves player to either end depending on direction
     void OnTriggerStay( Collider c )
     {
-        c.transform.position = Vector3.MoveTowards(
-            c.transform.position,
-            endpoints[System.Convert.ToUInt32(direction)].position,
-            speed * Time.deltaTime
-        );
+        // Hardcoding situation for Switch Box for now
+        if ( c.transform.tag == "Player" ||
+             (c.transform.tag == "Switch Box" && !direction) )
+        {
+            c.transform.position = Vector3.MoveTowards(
+                c.transform.position,
+                endpoints[System.Convert.ToUInt32(direction)].position,
+                speed * Time.deltaTime
+            );
+        }
+        // else if ( c.transform.tag == "Switch Box" )
+        // {
+        //     Rigidbody rb = c.transform.GetComponent<Rigidbody>();
+                
+        // }
     }
 
     // Called by an activating Switch with a matching conveyor ID

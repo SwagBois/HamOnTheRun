@@ -15,11 +15,11 @@ public class PigController : MonoBehaviour
     Rigidbody rb; CapsuleCollider cc;
 
     // Initialize components attached to GameObject
-	void Awake()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
         cc = GetComponent<CapsuleCollider>();
-	}
+    }
 
     // Initialize connections and interactions with other GameObjects
     void Start()
@@ -30,23 +30,23 @@ public class PigController : MonoBehaviour
     // Perform state changes (such as from inputs)
     void Update()
     {
-		rotation = Input.GetAxis( "Horizontal" ) * Time.deltaTime * 120.0f;
-        thrust = Input.GetAxis( "Jump" ) * Time.deltaTime * 175.0f;
+    rotation = Input.GetAxis( "Horizontal" ) * Time.deltaTime * 200.0f;
+    thrust = Input.GetAxis( "Jump" ) * Time.deltaTime * 205.0f;
 
-        if ( (vertical = Input.GetAxis( "Vertical" )) < 0 )        
-		    velocity = vertical * Time.deltaTime * 2.5f;
-        else if ( (vertical = Input.GetAxis( "Vertical" )) > 0  )  
-		    velocity = vertical * Time.deltaTime * 5.0f;            
+        if ( (vertical = Input.GetAxis( "Vertical" )) < 0 )
+            velocity = vertical * Time.deltaTime * 12.5f;
+        else if ( (vertical = Input.GetAxis( "Vertical" )) > 0  )
+            velocity = vertical * Time.deltaTime * 15.0f;
     }
 
     // Performs fixed interval physics updates on RigidBody
-	void FixedUpdate()
+    void FixedUpdate()
     {
-		transform.Rotate( 0, rotation, 0 );
-		transform.Translate( 0, 0, velocity );
+    transform.Rotate( 0, rotation, 0 );
+    transform.Translate( 0, 0, velocity );
         if ( isGrounded )
             rb.AddForce( transform.up * thrust, ForceMode.Impulse );
-	}
+    }
 
 
     // For now, checks collision using tag for convenience, but can use

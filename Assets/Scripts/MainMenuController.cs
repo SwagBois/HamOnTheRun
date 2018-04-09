@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 public class MainMenuController : MonoBehaviour
 {
 
-	public GameObject Startpanel, AboutPanel, ButtonSound;
+    public GameObject Startpanel, AboutPanel, ButtonSound;
 
-	void Start()
+    void Start()
     {
-		AboutPanel.SetActive(false);       
-		ButtonSound.SetActive(true); 
-		Startpanel.SetActive(true);
-	}
+        AboutPanel.SetActive(false);
+        ButtonSound.SetActive(true);
+        Startpanel.SetActive(true);
+    }
 
     // Build priority by scene order:
     // Main Menu - 0
@@ -21,16 +21,16 @@ public class MainMenuController : MonoBehaviour
     public void Play() => SceneManager.LoadScene(1);
 
     public void About()
-	{
-		AboutPanel.SetActive(true);
+    {
+        AboutPanel.SetActive(true);
         Startpanel.SetActive(false);
-	}
+    }
 
-	public void Back()
-	{
-		AboutPanel.SetActive(false);
+    public void Back()
+    {
+        AboutPanel.SetActive(false);
         Startpanel.SetActive(true);
-	}
+    }
 
     public void Quit() => Application.Quit();
 }
