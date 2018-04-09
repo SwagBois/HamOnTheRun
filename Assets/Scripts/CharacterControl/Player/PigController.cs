@@ -11,6 +11,7 @@ public class PigController : MonoBehaviour
     float rotation, thrust, velocity, vertical;
 
     private bool isGrounded = true;
+	private Animator anim;
 
     Rigidbody rb; CapsuleCollider cc;
 
@@ -19,12 +20,13 @@ public class PigController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         cc = GetComponent<CapsuleCollider>();
+		anim = GetComponent<Animator>();
     }
 
     // Initialize connections and interactions with other GameObjects
     void Start()
     {
-
+		anim.SetBool ("isWalking", false);
     }
 
     // Perform state changes (such as from inputs)
@@ -32,10 +34,14 @@ public class PigController : MonoBehaviour
     {
     rotation = Input.GetAxis( "Horizontal" ) * Time.deltaTime * 200.0f;
     thrust = Input.GetAxis( "Jump" ) * Time.deltaTime * 205.0f;
+	vertical = Input.GetAxis ("Vertical");
+		if (vertical != 0 || rotation != 0) {
+			anim.SetBool ("isWalking", true);
+		}
 
-        if ( (vertical = Input.GetAxis( "Vertical" )) < 0 )
+		if ( vertical < 0 )
             velocity = vertical * Time.deltaTime * 12.5f;
-        else if ( (vertical = Input.GetAxis( "Vertical" )) > 0  )
+		else if ( vertical > 0  )
             velocity = vertical * Time.deltaTime * 15.0f;
     }
 
@@ -44,6 +50,7 @@ public class PigController : MonoBehaviour
     {
     transform.Rotate( 0, rotation, 0 );
     transform.Translate( 0, 0, velocity );
+	anim.SetBool ("isWalking", false);
         if ( isGrounded )
             rb.AddForce( transform.up * thrust, ForceMode.Impulse );
     }
