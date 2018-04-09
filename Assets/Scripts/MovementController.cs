@@ -8,6 +8,7 @@ public class MovementController : MonoBehaviour {
     public GameObject mainCamera;
     private Vector3[][] direction;
     private PlayerController player;
+	private Animator anim;
 
     // Use this for initialization
     void Start () {
@@ -21,32 +22,40 @@ public class MovementController : MonoBehaviour {
         direction[1] = d1;
         direction[2] = d2;
         direction[3] = d3;
+
+		anim = GetComponent<Animator>();
+		anim.SetBool ("isWalking",false);
     }
 	
 	// Update is called once per frame
 	void Update () {
         int index = mainCamera.GetComponent<CameraController>().getIndex();
-
+		anim.SetBool ("isWalking",false);
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(speed * direction[index][0] * Time.deltaTime);
+			anim.SetBool ("isWalking",true);
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(speed * direction[index][1] * Time.deltaTime);
+			anim.SetBool ("isWalking",true);
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {
             transform.Translate(speed * direction[index][2] * Time.deltaTime);
+			anim.SetBool ("isWalking",true);
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
             transform.Translate(speed * direction[index][3] * Time.deltaTime);
+			anim.SetBool ("isWalking",true);
         }
 
         if(player.getIndex() == 1 && Input.GetKey(KeyCode.Space))
         {
             transform.Translate(6 * Vector3.up * Time.deltaTime);
+			anim.SetBool ("isWalking",true);
         }
 
     }
