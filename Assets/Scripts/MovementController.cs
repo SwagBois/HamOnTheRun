@@ -46,7 +46,7 @@ public class MovementController : MonoBehaviour {
 
         if(player.getIndex() == 1 && Input.GetKey(KeyCode.Space))
         {
-            transform.Translate(speed * Vector3.up * Time.deltaTime);
+            transform.Translate(6 * Vector3.up * Time.deltaTime);
         }
 
     }

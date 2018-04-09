@@ -44,6 +44,9 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (aiState == AIState.Patrol)
         {
+            navMeshAgent.speed = 2.5f;
+            GameObject.Find("Left Eye").gameObject.GetComponentInChildren<Renderer>().material.color = new Color(1, 1, 0);
+            GameObject.Find("Right Eye").gameObject.GetComponentInChildren<Renderer>().material.color = new Color(1, 1, 0);
             if (target != null)
             {
                 Vector3 deltaV = target.transform.position - this.transform.position;
@@ -68,6 +71,9 @@ public class EnemyBehaviour : MonoBehaviour
         }
         else if (aiState == AIState.InterceptTarget)
         {
+            navMeshAgent.speed = 3.5f;
+            GameObject.Find("Left Eye").gameObject.GetComponentInChildren<Renderer>().material.color = new Color(1, 0, 0);
+            GameObject.Find("Right Eye").gameObject.GetComponentInChildren<Renderer>().material.color = new Color(1, 0, 0);
             if (target != null)
             {
                 followTarget();

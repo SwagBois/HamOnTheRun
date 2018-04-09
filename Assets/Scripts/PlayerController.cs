@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
     private GameObject[] pigs;
     private int addIndex = 0;
     private int index = 0;
-    private int timer = 0;
+    private int timer = 240;
 
     // Use this for initialization
     void Start () {
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour {
             }
         }*/
         timer++;
-        print(timer);
+        //print(timer);
 
         // can only switch once every 4 seconds.
         if(timer > 240 && Input.GetKey(KeyCode.X))
@@ -44,15 +44,23 @@ public class PlayerController : MonoBehaviour {
             timer = 0;
         }
 
-        if(index == 0)
+        if (index == 0)
         {
             GetComponentInChildren<Renderer>().material.color = new Color(0.8f, 0.389f, 0.727f, 0.8f);
             transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            //GameObject leftWing = GameObject.Find("Left Wing").gameObject;
+            //GameObject rightWing = GameObject.Find("Right Wing").gameObject;
+            //leftWing.SetActive(false);
+            //rightWing.SetActive(false);
         }
-        else if(index == 1)
+        else if (index == 1)
         {
-            GetComponentInChildren<Renderer>().material.color = new Color(1, 0, 0);
+            GetComponentInChildren<Renderer>().material.color = new Color(255f/255, 192f/255, 203f/255);
             transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+            //GameObject leftWing = GameObject.Find("Left Wing").gameObject;
+            //GameObject rightWing = GameObject.Find("Right Wing").gameObject;
+            //leftWing.SetActive(true);
+            //rightWing.SetActive(true);
         }
         else if (index == 2)
         {
