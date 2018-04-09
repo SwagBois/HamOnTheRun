@@ -18,7 +18,10 @@ public class MainMenuController : MonoBehaviour
     // Build priority by scene order:
     // Main Menu - 0
     // Level 1   - 1
-    public void Play() => SceneManager.LoadScene(1);
+    public void Play()
+    {
+        SceneManager.LoadScene(1);
+    }
 
     public void About()
     {
@@ -32,5 +35,8 @@ public class MainMenuController : MonoBehaviour
         Startpanel.SetActive(true);
     }
 
-    public void Quit() => Application.Quit();
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

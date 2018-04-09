@@ -35,5 +35,8 @@ public class ConveyorBelt : MonoBehaviour
     }
 
     // Called by an activating Switch with a matching conveyor ID
-    public void ChangeDirection() => direction = !direction;
+    public void ChangeDirection()
+    {
+        direction = !direction;
+    }
 }
