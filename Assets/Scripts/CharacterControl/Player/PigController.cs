@@ -67,8 +67,9 @@ public class PigController : MonoBehaviour
             isGrounded = true;
         else if ( c.gameObject.tag == "Magma" )
         {
-            PauseMenuController.Instance.RestartCheckpoint();
+            this.transform.position = GameObject.Find("Stage 2 Checkpoint").transform.position;
         }
+
     }
 
     void OnCollisionExit( Collision c )

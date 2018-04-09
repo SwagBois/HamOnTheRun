@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 // Level checkpoint
 public class Checkpoint : MonoBehaviour
 {
     public enum CheckpointType
     {
-        NONE, PORTAL
+        NONE, PORTAL, END, START
     }
 
     public CheckpointType checkpointType;
@@ -30,10 +30,12 @@ public class Checkpoint : MonoBehaviour
         if ( !isTriggered && c.tag == "Player" )
         {
             isTriggered = true;
-            if ( checkpointType == CheckpointType.PORTAL )
+            if (checkpointType == CheckpointType.END)
+                SceneManager.LoadScene(0);
+            else if ( checkpointType == CheckpointType.PORTAL )
                 StartCoroutine( PortalWithDelay( c, 1.5f ) );
-            else if ( checkpointType == CheckpointType.NONE )
-                trigger.Invoke( this );
+            else if (checkpointType == CheckpointType.NONE)
+                c.transform.position = portal.transform.position;
         }
     }
 
@@ -41,7 +43,6 @@ public class Checkpoint : MonoBehaviour
     private IEnumerator PortalWithDelay( Collider c, float waitTime )
     {
         // Implementation of communication between Checkpoint Manager not yet fixed
-        trigger.Invoke( this );
         yield return new WaitForSecondsRealtime( waitTime );
         c.transform.position = portal.transform.position;        
     }

@@ -141,7 +141,7 @@ public class EnemyBehaviour : MonoBehaviour
                     if (hit.transform.tag == "Player")
                     {
                         Debug.LogWarning("player captured");
-                        PauseMenuController.Instance.RestartCheckpoint();
+                        hit.transform.position = new Vector3(2.2f, 0.7f, 22.5f);
                     }
                     else
                     {
