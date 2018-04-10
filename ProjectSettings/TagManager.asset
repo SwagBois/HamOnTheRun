@@ -8,6 +8,7 @@ TagManager:
   - Goal
   - Switch Box
   - Magma
+  - Wall
   layers:
   - Default
   - TransparentFX
