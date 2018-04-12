@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   belt: {fileID: 94156109}
-  materialToChangeTo: {fileID: 2100000, guid: 94059db51deea48a2af7386e6ddef812, type: 2}
+  materialToChangeTo: {fileID: 2100000, guid: a07ed55e40c204dda874c1d31c8fa15b, type: 2}
   direction: 1
   endpoints:
   - {fileID: 1630238555}
@@ -826,7 +826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   belt: {fileID: 244911453}
-  materialToChangeTo: {fileID: 2100000, guid: 94059db51deea48a2af7386e6ddef812, type: 2}
+  materialToChangeTo: {fileID: 2100000, guid: a07ed55e40c204dda874c1d31c8fa15b, type: 2}
   direction: 0
   endpoints:
   - {fileID: 1810302212}
@@ -1241,7 +1241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   belt: {fileID: 411648307}
-  materialToChangeTo: {fileID: 2100000, guid: 1bf573c04e34f45faa1af81f7235df38, type: 2}
+  materialToChangeTo: {fileID: 2100000, guid: 85e2b4ac224db4c0998eab21647dfd88, type: 2}
   direction: 0
   endpoints:
   - {fileID: 2107703937}
@@ -2767,7 +2767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   belt: {fileID: 805561841}
-  materialToChangeTo: {fileID: 2100000, guid: 1bf573c04e34f45faa1af81f7235df38, type: 2}
+  materialToChangeTo: {fileID: 2100000, guid: 85e2b4ac224db4c0998eab21647dfd88, type: 2}
   direction: 1
   endpoints:
   - {fileID: 1292438032}
@@ -5875,7 +5875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   belt: {fileID: 2111064740}
-  materialToChangeTo: {fileID: 2100000, guid: 1bf573c04e34f45faa1af81f7235df38, type: 2}
+  materialToChangeTo: {fileID: 2100000, guid: 85e2b4ac224db4c0998eab21647dfd88, type: 2}
   direction: 0
   endpoints:
   - {fileID: 1590631743}
