@@ -1735,7 +1735,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9f89dadcb01a11044a9ae44c5c476bee, type: 2}
+  - {fileID: 2100000, guid: 93e0ddb5a221d45578ed0ea0c36c4e6e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1787,9 +1787,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4b0d09f96882848a0be643528ea7b859, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 48796dd1923fb40428e6dead6bbbbf73, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.131
+  m_Volume: 0.183
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1866,7 +1866,7 @@ MeshCollider:
   m_GameObject: {fileID: 591735541}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14

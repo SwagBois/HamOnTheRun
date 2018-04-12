@@ -19,7 +19,8 @@ public class AudioPlayer : MonoBehaviour {
 	void OnTriggerExit( Collider collider ) {
 		AudioSource aSource = collider.gameObject.GetComponent<AudioSource>();
 
-		if( aSource != null ) {
+		if( aSource != null && collider.gameObject.name != "Magma") {
+			print (collider.gameObject.name);
 			triggerCount--;
 			if( triggerCount <= 0 ) {
 				aSource.Stop();
