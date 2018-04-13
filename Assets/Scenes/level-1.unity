@@ -142,9 +142,9 @@ Transform:
   - {fileID: 1585144079}
   - {fileID: 2111064741}
   - {fileID: 805561842}
-  - {fileID: 287714971}
   - {fileID: 411648308}
   - {fileID: 94156110}
+  - {fileID: 287714971}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -507,7 +507,7 @@ Transform:
   - {fileID: 1630238555}
   - {fileID: 799565943}
   m_Father: {fileID: 21983601}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.5}
 --- !u!114 &94156111
 MonoBehaviour:
@@ -522,6 +522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   belt: {fileID: 94156109}
+  materialToChangeTo: {fileID: 2100000, guid: a07ed55e40c204dda874c1d31c8fa15b, type: 2}
   direction: 1
   endpoints:
   - {fileID: 1630238555}
@@ -542,7 +543,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 51ab26fa7df7bcd4ab1914a3e7f8bf86, type: 2}
+  - {fileID: 2100000, guid: 1bf573c04e34f45faa1af81f7235df38, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -825,6 +826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   belt: {fileID: 244911453}
+  materialToChangeTo: {fileID: 2100000, guid: a07ed55e40c204dda874c1d31c8fa15b, type: 2}
   direction: 0
   endpoints:
   - {fileID: 1810302212}
@@ -845,7 +847,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 51ab26fa7df7bcd4ab1914a3e7f8bf86, type: 2}
+  - {fileID: 2100000, guid: 1bf573c04e34f45faa1af81f7235df38, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1011,7 +1013,7 @@ Transform:
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_Children: []
   m_Father: {fileID: 21983601}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &287714972
 Rigidbody:
@@ -1224,7 +1226,7 @@ Transform:
   - {fileID: 2107703937}
   - {fileID: 56408011}
   m_Father: {fileID: 21983601}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &411648309
 MonoBehaviour:
@@ -1239,6 +1241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   belt: {fileID: 411648307}
+  materialToChangeTo: {fileID: 2100000, guid: 85e2b4ac224db4c0998eab21647dfd88, type: 2}
   direction: 0
   endpoints:
   - {fileID: 2107703937}
@@ -1259,7 +1262,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 51ab26fa7df7bcd4ab1914a3e7f8bf86, type: 2}
+  - {fileID: 2100000, guid: 94059db51deea48a2af7386e6ddef812, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1735,7 +1738,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9f89dadcb01a11044a9ae44c5c476bee, type: 2}
+  - {fileID: 2100000, guid: 93e0ddb5a221d45578ed0ea0c36c4e6e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1787,9 +1790,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4b0d09f96882848a0be643528ea7b859, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 48796dd1923fb40428e6dead6bbbbf73, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.131
+  m_Volume: 0.183
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1866,7 +1869,7 @@ MeshCollider:
   m_GameObject: {fileID: 591735541}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
@@ -2385,7 +2388,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1400884149601002, guid: 4c5eea698d54dc5449be8f8db02ece02, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c5eea698d54dc5449be8f8db02ece02, type: 2}
@@ -2764,6 +2767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   belt: {fileID: 805561841}
+  materialToChangeTo: {fileID: 2100000, guid: 85e2b4ac224db4c0998eab21647dfd88, type: 2}
   direction: 1
   endpoints:
   - {fileID: 1292438032}
@@ -2784,7 +2788,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 51ab26fa7df7bcd4ab1914a3e7f8bf86, type: 2}
+  - {fileID: 2100000, guid: 94059db51deea48a2af7386e6ddef812, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3205,7 +3209,7 @@ Prefab:
     - target: {fileID: 114932368480490538, guid: ad24596633207544289a733173535c6b,
         type: 2}
       propertyPath: checkpointType
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114473587214837162, guid: ad24596633207544289a733173535c6b,
         type: 2}
@@ -4095,6 +4099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   belt: {fileID: 1537691911}
+  materialToChangeTo: {fileID: 0}
   direction: 1
   endpoints:
   - {fileID: 414912322}
@@ -4866,17 +4871,6 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100088, guid: 4a001703e282449d98f3176e39d50b36, type: 3}
   m_PrefabInternal: {fileID: 896635675}
---- !u!114 &1838863855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1838863854}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b10af064621ad643975b4f3dcc781a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &1838863856
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5025,6 +5019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   mainCamera: {fileID: 1215834094}
+  isDead: 0
 --- !u!114 &1838863864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5870,6 +5865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   belt: {fileID: 2111064740}
+  materialToChangeTo: {fileID: 2100000, guid: 85e2b4ac224db4c0998eab21647dfd88, type: 2}
   direction: 0
   endpoints:
   - {fileID: 1590631743}
@@ -5890,7 +5886,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 51ab26fa7df7bcd4ab1914a3e7f8bf86, type: 2}
+  - {fileID: 2100000, guid: 94059db51deea48a2af7386e6ddef812, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

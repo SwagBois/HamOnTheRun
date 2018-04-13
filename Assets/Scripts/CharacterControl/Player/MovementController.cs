@@ -9,7 +9,10 @@ public class MovementController : MonoBehaviour {
     private Vector3[][] direction;
     private PlayerController player;
 	private Animator anim;
+    private Rigidbody rb;
     private int[] count;
+    private bool isGrounded = true;
+    public bool isDead = false;
 
     // Use this for initialization
     void Start () {
@@ -27,14 +30,17 @@ public class MovementController : MonoBehaviour {
         count = new int[4];
 
 		anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
 		anim.SetBool ("isWalking",false);
     }
 	
 	// Update is called once per frame
 	void Update () {
         int index = mainCamera.GetComponent<CameraController>().getIndex();
+        if (isDead)
+            return;
 		anim.SetBool ("isWalking",false);
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         {
             /*if(count[0] == 0)
             {
@@ -42,11 +48,13 @@ public class MovementController : MonoBehaviour {
 
                 count[0]++;
             }*/
-            
-            transform.Translate(speed * direction[index][0] * Time.deltaTime);
-			anim.SetBool ("isWalking",true);
+            if (!isGrounded)
+                transform.Translate(speed / 2 * direction[index][0] * Time.deltaTime);
+            else
+                transform.Translate(speed * direction[index][0] * Time.deltaTime);
+            anim.SetBool ("isWalking",true);
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             /*count[0] = 0;
             count[2] = 0;
@@ -56,10 +64,13 @@ public class MovementController : MonoBehaviour {
                 GameObject.Find("Armature").transform.Rotate(0, 0, -90);
                 count[1]++;
             }*/
-            transform.Translate(speed * direction[index][1] * Time.deltaTime);
-			anim.SetBool ("isWalking",true);
+            if (!isGrounded)
+                transform.Translate(speed / 2 * direction[index][1] * Time.deltaTime);
+            else
+                transform.Translate(speed * direction[index][1] * Time.deltaTime);
+            anim.SetBool ("isWalking",true);
         }
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.W))
         {
             /*if (count[2] == 0)
             {
@@ -69,10 +80,13 @@ public class MovementController : MonoBehaviour {
                 GameObject.Find("Armature").transform.Rotate(0, 0, 0);
                 count[2]++;
             }*/
-            transform.Translate(speed * direction[index][2] * Time.deltaTime);
-			anim.SetBool ("isWalking",true);
+            if (!isGrounded)
+                transform.Translate(speed / 2 * direction[index][2] * Time.deltaTime);
+            else
+                transform.Translate(speed * direction[index][2] * Time.deltaTime);
+            anim.SetBool ("isWalking",true);
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.S))
         {
             /*if (count[3] == 0)
             {
@@ -82,15 +96,65 @@ public class MovementController : MonoBehaviour {
                 GameObject.Find("Armature").transform.Rotate(0, 0, 180);
                 count[3]++;
             }*/
-            transform.Translate(speed * direction[index][3] * Time.deltaTime);
+            if (!isGrounded)
+                transform.Translate(speed/2 * direction[index][3] * Time.deltaTime);
+            else
+                transform.Translate(speed * direction[index][3] * Time.deltaTime);
 			anim.SetBool ("isWalking",true);
         }
 
         if(player.getIndex() == 1 && Input.GetKey(KeyCode.Space))
         {
-            transform.Translate(6 * Vector3.up * Time.deltaTime);
+            float thrust;
+            if (isGrounded)
+            {
+                thrust = Input.GetAxis("Jump") * 5f;
+                rb.AddForce(transform.up * thrust, ForceMode.Impulse);
+                isGrounded = false;
+            }
 			anim.SetBool ("isWalking",true);
         }
 
+    }
+    void OnCollisionEnter(Collision c)
+    {
+        if (c.gameObject.tag == "Floor")
+        {
+            isGrounded = true;
+        }
+        else if (c.gameObject.tag == "Magma")
+        {
+            isGrounded = false;
+            isDead = true;
+            anim.SetBool("isWalking", false);
+            StartCoroutine(PigDiedViaLava());
+        }
+        else if (GameObject.Find("Robot Enemy") == c.gameObject)
+        {
+            isDead = true;
+            anim.SetBool("isWalking", false);
+            StartCoroutine(PigDiedViaRobot());
+        }
+            
+    }
+
+    private IEnumerator PigDiedViaRobot()
+    {
+        yield return new WaitForSecondsRealtime(1.5f);
+        this.transform.position = GameObject.Find("Stage 1 Checkpoint").transform.position;
+        isDead = false;
+    }
+
+    private IEnumerator PigDiedViaLava()
+    {
+        yield return new WaitForSecondsRealtime(1.5f);
+        this.transform.position = GameObject.Find("Stage 2 Checkpoint").transform.position;
+        isDead = false;
+    }
+
+    void OnCollisionExit(Collision c)
+    {
+        if (c.gameObject.tag == "Floor")
+            isGrounded = false;
     }
 }

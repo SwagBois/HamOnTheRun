@@ -7,7 +7,7 @@ public class Checkpoint : MonoBehaviour
 {
     public enum CheckpointType
     {
-        NONE, PORTAL, END, START
+        NONE, PORTAL, END
     }
 
     public CheckpointType checkpointType;

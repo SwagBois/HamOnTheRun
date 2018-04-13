@@ -7,6 +7,8 @@ public class ConveyorBelt : MonoBehaviour
 {
     // Belt trigger collider is 0.98 of X and 0.8 of Z for best detection
     public GameObject belt;
+	public Material materialToChangeTo;
+	Renderer rendererr;
 
     // Change in direction swaps endpoints
     public bool direction;
@@ -38,5 +40,8 @@ public class ConveyorBelt : MonoBehaviour
     public void ChangeDirection()
     {
         direction = !direction;
+		rendererr = GetComponent<Renderer> ();
+		rendererr.material = materialToChangeTo;
+
     }
 }
