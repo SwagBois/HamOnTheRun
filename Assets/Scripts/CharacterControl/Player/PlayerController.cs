@@ -83,6 +83,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public GameObject getCurrentPig()
+    {
+        return pigs[index];
+    }
+
     public int getIndex()
     {
         return index;

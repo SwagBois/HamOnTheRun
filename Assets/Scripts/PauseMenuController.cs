@@ -22,8 +22,6 @@ public class PauseMenuController : MonoBehaviour
         else if ( instance != this )
             Destroy( gameObject );          // Enforce Singleton
 
-        DontDestroyOnLoad( this );
-
         pauseMenu = GetComponent<CanvasGroup>();
         if ( pauseMenu == null )
 		{
@@ -74,15 +72,30 @@ public class PauseMenuController : MonoBehaviour
 
     // Approach 1 : Set current checkpoint to 0 and move player to it
     // Approach 2 : Reload level
-    public void RestartLevel() =>
+    public void RestartLevel()
+    {
+        pauseMenu.interactable = false;
+        pauseMenu.blocksRaycasts = false;
+        pauseMenu.alpha = 0f;
+        Time.timeScale = 1f;
+        CheckpointManager.Instance.CheckpointInit();
         SceneManager.LoadScene( SceneManager.GetActiveScene().name );
+    }
 
     // Loads first level (the first scene after the main menu)
     public void RestartGame() => SceneManager.LoadScene(1);
 
     public void ToggleSettings() {}
 
-    public void QuitToMenu() => SceneManager.LoadScene(0);
+    public void QuitToMenu()
+    {
+        pauseMenu.interactable = false;
+        pauseMenu.blocksRaycasts = false;
+        pauseMenu.alpha = 0f;
+        Time.timeScale = 1f;
+        CheckpointManager.Instance.CheckpointInit();
+        SceneManager.LoadScene(0);
+    }
 
     public void QuitGame() => Application.Quit();
 }

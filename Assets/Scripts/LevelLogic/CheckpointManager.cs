@@ -14,6 +14,8 @@ public class CheckpointManager : MonoBehaviour
     public List<Checkpoint> checkpoints = new List<Checkpoint>();
     // Reference to a single instance of CheckpointManager
     private static CheckpointManager instance = null;
+    // Reference to PlayerController
+    public PlayerController playerController;
 
     // Read-only Properties
     public List<Checkpoint> Checkpoints { get { return checkpoints; } }
@@ -35,7 +37,7 @@ public class CheckpointManager : MonoBehaviour
         else if ( instance != this )
             Destroy( gameObject );          // Enforce Singleton
 
-        DontDestroyOnLoad( this );
+        DontDestroyOnLoad( this );          // Preserves manager scross scenes
 
         // Add all children to Checkpoints list
         for ( int i = 0;  i < transform.childCount; i++ )
@@ -46,13 +48,10 @@ public class CheckpointManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
-
     void Update()
     {
+        // Will be efficient if we have multiple controllable pigs at the same time
+        player = GameObject.Find("Main Pig");        
         // Reached last checkpoint, show Game Over screen
         if ( currentIndex == checkpoints.Capacity - 1 )
         {
@@ -61,9 +60,12 @@ public class CheckpointManager : MonoBehaviour
         }
     }
 
+    public void CheckpointInit() => currentIndex = 0;
+
     public void CheckpointReset()
     {
-        if ( checkpoints[currentIndex].checkpointType == Checkpoint.CheckpointType.NONE )
+        if ( checkpoints[currentIndex].checkpointType == Checkpoint.CheckpointType.NONE ||
+             checkpoints[currentIndex].checkpointType == Checkpoint.CheckpointType.START )
             player.transform.position = checkpoints[currentIndex].transform.position;
     }
 
