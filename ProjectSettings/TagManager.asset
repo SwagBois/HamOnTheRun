@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Floor
+  - Goal
+  - Switch Box
+  - Magma
+  - Wall
   layers:
   - Default
   - TransparentFX
