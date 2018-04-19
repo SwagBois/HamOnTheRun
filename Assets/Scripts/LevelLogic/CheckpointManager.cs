@@ -60,7 +60,10 @@ public class CheckpointManager : MonoBehaviour
         }
     }
 
-    public void CheckpointInit() => currentIndex = 0;
+    public void CheckpointInit()
+    {
+        currentIndex = 0;
+    }
 
     public void CheckpointReset()
     {
@@ -73,7 +76,9 @@ public class CheckpointManager : MonoBehaviour
     // Currently there are only two checkpoints, the reset position from start
     // and stage 2. We can use the current index to handle where to reset the
     // the player controller position to on death/respawn
-    public void OnCheckPointTriggered( Checkpoint cp ) =>
-        currentIndex = checkpoints.IndexOf( cp );
+    public void OnCheckPointTriggered( Checkpoint cp)
+    {
+        currentIndex = checkpoints.IndexOf(cp);
+    }
 
 }
