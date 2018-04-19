@@ -18,11 +18,6 @@ public class Checkpoint : MonoBehaviour
     public OnTrigger trigger;
     public bool isTriggered;
 
-    void Awake()
-    {
-        trigger = null;
-    }
-
     // If triggered by player and the checkpoint is a portal,
     // run portal teleport coroutine
     public void OnTriggerEnter( Collider c )
