@@ -47,6 +47,8 @@ public class EnemyBehaviour : MonoBehaviour
         this.transform.Find("Sholder").gameObject.GetComponent<Renderer>().material.color = new Color(1, 0, 0);
         this.transform.Find("Left Arm").gameObject.GetComponent<Renderer>().material.color = new Color(1, 0.5f, 0);
         this.transform.Find("Right Arm").gameObject.GetComponent<Renderer>().material.color = new Color(1, 0.5f, 0);
+        this.transform.Find("Left Eye").gameObject.GetComponentInChildren<Renderer>().material.color = new Color(1, 1, 0);
+        this.transform.Find("Right Eye").gameObject.GetComponentInChildren<Renderer>().material.color = new Color(1, 1, 0);
     }
 
     void Update()
@@ -54,8 +56,6 @@ public class EnemyBehaviour : MonoBehaviour
         if (aiState == AIState.Patrol)
         {
             navMeshAgent.speed = 2.5f;
-            this.transform.Find("Left Eye").gameObject.GetComponentInChildren<Renderer>().material.color = new Color(1, 1, 0);
-            this.transform.Find("Right Eye").gameObject.GetComponentInChildren<Renderer>().material.color = new Color(1, 1, 0);
             if (target != null)
             {
                 Vector3 deltaV = target.transform.position - this.transform.position;
@@ -80,10 +80,6 @@ public class EnemyBehaviour : MonoBehaviour
         }
         else if (aiState == AIState.InterceptTarget)
         {
-            navMeshAgent.speed = 3.5f;
-            this.transform.Find("Left Eye").gameObject.GetComponentInChildren<Renderer>().material.color = new Color(1, 0, 0);
-            this.transform.Find("Right Eye").gameObject.GetComponentInChildren<Renderer>().material.color = new Color(1, 0, 0);
-            navMeshAgent.speed = 4.0f;
             if (target != null)
             {
                 followTarget();
@@ -92,6 +88,8 @@ public class EnemyBehaviour : MonoBehaviour
         else if (aiState == AIState.Reset)
         {
             aiState = AIState.Patrol;
+            this.transform.Find("Left Eye").gameObject.GetComponentInChildren<Renderer>().material.color = new Color(1, 1, 0);
+            this.transform.Find("Right Eye").gameObject.GetComponentInChildren<Renderer>().material.color = new Color(1, 1, 0);
         }
     }
 
@@ -128,7 +126,7 @@ public class EnemyBehaviour : MonoBehaviour
             navMeshAgent.SetDestination(waypoints[currWaypoint].transform.position);
             return;
         }
-        if (navMeshAgent.remainingDistance < target.GetComponent<CapsuleCollider>().radius * 2f)
+        if (navMeshAgent.remainingDistance < target.GetComponent<CapsuleCollider>().radius * 1.5f)
         {
             Vector3 deltaV = target.transform.position - this.transform.position;
             float angle = Vector3.Angle(deltaV, this.transform.forward);
@@ -160,6 +158,9 @@ public class EnemyBehaviour : MonoBehaviour
         }
         else
         {
+            navMeshAgent.speed = 5.0f;
+            this.transform.Find("Left Eye").gameObject.GetComponentInChildren<Renderer>().material.color = new Color(1, 0, 0);
+            this.transform.Find("Right Eye").gameObject.GetComponentInChildren<Renderer>().material.color = new Color(1, 0, 0);
             Vector3 deltaV = target.transform.position - this.transform.position;
             float angle = Vector3.Angle(deltaV, this.transform.forward);
             if (angle >= -fov && angle <= fov)
