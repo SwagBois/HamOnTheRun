@@ -67,7 +67,7 @@ public class PigController : MonoBehaviour
             isGrounded = true;
         else if ( c.gameObject.tag == "Magma" )
         {
-            this.transform.position = GameObject.Find("Stage 2 Checkpoint").transform.position;
+            CheckpointManager.Instance.CheckpointReset();
         }
 
     }

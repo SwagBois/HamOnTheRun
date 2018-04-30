@@ -63,6 +63,11 @@ public class CheckpointManager : MonoBehaviour
     public void CheckpointInit()
     {
         currentIndex = 0;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Checkpoint checkpoint = transform.GetChild(i).GetComponent<Checkpoint>();
+            checkpoint.isTriggered = false;
+        }
     }
 
     public void CheckpointReset()

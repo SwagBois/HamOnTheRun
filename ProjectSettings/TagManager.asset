@@ -9,6 +9,7 @@ TagManager:
   - Switch Box
   - Magma
   - Wall
+  - Crates
   layers:
   - Default
   - TransparentFX
