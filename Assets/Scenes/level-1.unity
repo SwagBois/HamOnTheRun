@@ -177,7 +177,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3927ad41bb02ce148b0ebbd5c24497ff, type: 2}
+      objectReference: {fileID: 2100000, guid: 551c8ccad44f347c1b985068c0e8c230, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6be5f0e59f1209446b943ac31d975812, type: 2}
   m_IsPrefabParent: 0
@@ -1870,6 +1870,33 @@ Prefab:
       propertyPath: m_TagString
       value: Goal
       objectReference: {fileID: 0}
+    - target: {fileID: 102541133363774124, guid: 956f87fb5f94e3f41881eff61b0642f5,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Congratulations
+
+        Portal To Outside World'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259963122334252, guid: 956f87fb5f94e3f41881eff61b0642f5, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259963122334252, guid: 956f87fb5f94e3f41881eff61b0642f5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -3.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222720729135710, guid: 956f87fb5f94e3f41881eff61b0642f5, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222720729135710, guid: 956f87fb5f94e3f41881eff61b0642f5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 28.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222720729135710, guid: 956f87fb5f94e3f41881eff61b0642f5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -3.81
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 956f87fb5f94e3f41881eff61b0642f5, type: 2}
   m_IsPrefabParent: 0
@@ -3385,7 +3412,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c903026c81fb7a94dbae37b3141c8d11, type: 2}
+      objectReference: {fileID: 2100000, guid: b157ed46d34af49d196df5ada4f57d86, type: 2}
     - target: {fileID: 4270011142778982, guid: 6be5f0e59f1209446b943ac31d975812, type: 2}
       propertyPath: m_LocalScale.x
       value: 0.35
