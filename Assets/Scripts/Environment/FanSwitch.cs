@@ -18,7 +18,7 @@ public class FanSwitch : MonoBehaviour {
 
 	void OnCollisionStay(Collision c)
     {
-        if (c.gameObject.tag == "Player" || c.gameObject.tag == "Crates")
+        if (c.gameObject.tag == "Player" || c.gameObject.tag == "Player-Push" || c.gameObject.tag == "Crates")
         {
             switchOn = true;
         }

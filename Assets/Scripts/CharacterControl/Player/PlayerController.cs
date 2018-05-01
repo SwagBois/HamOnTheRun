@@ -50,7 +50,8 @@ public class PlayerController : MonoBehaviour
         if (index == 0)
         {
             GetComponentInChildren<Renderer>().material.color = new Color(0.8f, 0.389f, 0.727f, 0.8f);
-            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+            tag = "Player";
             //GameObject leftWing = GameObject.Find("Left Wing").gameObject;
             //GameObject rightWing = GameObject.Find("Right Wing").gameObject;
             //leftWing.SetActive(false);
@@ -58,8 +59,9 @@ public class PlayerController : MonoBehaviour
         }
         else if (index == 1)
         {
-            GetComponentInChildren<Renderer>().material.color = new Color(255f / 255, 192f / 255, 203f / 255);
-            transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+            GetComponentInChildren<Renderer>().material.color = new Color(255f / 255, 192f / 255, 210f / 255);
+            transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
+            tag = "Player";
             //GameObject leftWing = GameObject.Find("Left Wing").gameObject;
             //GameObject rightWing = GameObject.Find("Right Wing").gameObject;
             //leftWing.SetActive(true);
@@ -67,7 +69,9 @@ public class PlayerController : MonoBehaviour
         }
         else if (index == 2)
         {
-            // TODO. 3rd pig
+            GetComponentInChildren<Renderer>().material.color = new Color(247f / 255, 178f / 255, 165f / 255);
+            transform.localScale = new Vector3(0.425f, 0.425f, 0.425f);
+            tag = "Player-Push";
         }
 
         //print(index);

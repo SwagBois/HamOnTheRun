@@ -10,6 +10,7 @@ TagManager:
   - Magma
   - Wall
   - Crates
+  - Player-Push
   layers:
   - Default
   - TransparentFX

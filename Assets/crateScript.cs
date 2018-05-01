@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class crateScript : MonoBehaviour {
 	Vector3 initialPos;
+    Rigidbody rb;
 	// Use this for initialization
 	void Start () {
+        rb = GetComponent<Rigidbody>();
 		initialPos = transform.position;
 	}
 	
@@ -22,5 +24,21 @@ public class crateScript : MonoBehaviour {
 		{
 			transform.position = initialPos;
 		}
-	}
+        if (other.collider.tag != "Floor" || other.collider.tag != "Wall")
+        {
+            rb.isKinematic = true;
+        }
+        if (other.collider.tag == "Player-Push" || other.collider.tag == "Switch Box")
+        {
+            rb.isKinematic = false;
+        }
+    }
+
+    private void OnCollisionStay(Collision other)
+    {
+        if (other.collider.tag == "Player-Push" || other.collider.tag == "Switch Box")
+        {
+            rb.isKinematic = false;
+        }
+    }
 }

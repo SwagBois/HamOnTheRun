@@ -21,7 +21,7 @@ public class OpenDoor : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Player" || other.tag == "player-Push")
         {
             doorAnim.SetBool("open", true);
             switchAnim.SetBool("on", true);
