@@ -1,5 +1,3 @@
-## Ham on The Run
-
 Shahwaiz Nassar
 snassar3@gatech.edu
 snassar3
@@ -10,7 +8,7 @@ klee639
 
 Andrew Hu
 ahuman87@gatech.edu
-ahu87
+ahu37
 
 Ollie Foo
 ofoo3@gatech.edu
@@ -26,7 +24,10 @@ No extra installations required other than Unity
 
 ------------------------------------------------------------------------------------------
 
-Arrow Keys - Movement
+W - UP
+A - LEFT
+S - DOWN
+D - RIGHT
 X - SWITCH CHARACTER
 C/Z - CHANGE CAMERA
 SPACE - JUMP
@@ -47,7 +48,10 @@ Level 3 has environment that acknowledges the player. This is apparent with the 
 
 ------------------------------------------------------------------------------------------
 
-Known bugs: Phase through floor in the beginning of Level 3, inconsitency with level three fans and bot AI arent always good at spotting player.
+Known bugs: 
+Phase through floor in the beginning of Level 3.
+The crate on the big switch button in Level 3 sometimes doesn't trigger the switch. Player needs to move it around a little.
+The pig sometimes phases through the ramps in Level 3.
 
 ------------------------------------------------------------------------------------------
 
@@ -55,15 +59,11 @@ No external resources used
 
 ------------------------------------------------------------------------------------------
 
-Shahwaiz - Create Start Game Screen, Pause Menu Screen, Objectives Screen.
-
-Kevin - 
-
-Ollie - 
-
-Edu - Code for AI behavior,Fan behavior and physicis, designer of level 1 and 3.
-
-Andrew - 
+Shahwaiz - Create Start Game Screen, Pause Menu Screen, Objectives Screen
+Kevin - Create Pig Model, Rigging and Keyframe Animation, Sounds and Textures
+Ollie - Movement controller, Camera controller, pig abilities, switching pigs
+Edu - Code for AI Behavior, Fan Behavior and Physics in Level 3, Designer of Level 1 & 3
+Andrew - Checkpoint Management, Pause Menu Logic, Designer of Level 2 and Environment Logic for Level 2
 
 ------------------------------------------------------------------------------------------
-Open scene labeled "Level 1" in Unity for main game and scene "Main Menu" is where the player will start the game.
+Open scene labeled "Level 1" in Unity
