@@ -24,14 +24,11 @@ No extra installations required other than Unity
 
 ------------------------------------------------------------------------------------------
 
-W - UP
-A - LEFT
-S - DOWN
-D - RIGHT
+UP, DOWN, LEFT, RIGHT - ARROW KEYS
 X - SWITCH CHARACTER
 C/Z - CHANGE CAMERA
 SPACE - JUMP
-P - PAUSE
+ESC - PAUSE
 
 ------------------------------------------------------------------------------------------
 All levels include textures and is a complete game from beginning to end, allowing it to be a 3D Game Feel game.
@@ -48,10 +45,10 @@ Level 3 has environment that acknowledges the player. This is apparent with the 
 
 ------------------------------------------------------------------------------------------
 
-Known bugs: 
-Phase through floor in the beginning of Level 3.
-The crate on the big switch button in Level 3 sometimes doesn't trigger the switch. Player needs to move it around a little.
-The pig sometimes phases through the ramps in Level 3.
+Known bugs:
+Sometimes the piggy may phase through floor in the ramp of Level 3. If you ever fall endlessly, press ESC and 'restart from checkpoint'.
+The crate to be placed on the big switch button (for bridge activation) in Level 3 sometimes doesn't trigger the switch. Player needs to move it around a little.
+The robot in level 3 protecting the bridge activation can get stuck from the crates. But the player must move the crates to win so the player can still move the crates.
 
 ------------------------------------------------------------------------------------------
 
@@ -66,4 +63,5 @@ Edu - Code for AI Behavior, Fan Behavior and Physics in Level 3, Designer of Lev
 Andrew - Checkpoint Management, Pause Menu Logic, Designer of Level 2 and Environment Logic for Level 2
 
 ------------------------------------------------------------------------------------------
-Open scene labeled "Level 1" in Unity
+Open scene labeled "Menu" for title screen, which allows gameplay by clicking 'start game'
+Open scene labeled "Level 1" in Unity for direct gameplay
