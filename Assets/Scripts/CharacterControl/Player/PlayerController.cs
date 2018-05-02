@@ -69,8 +69,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (index == 2)
         {
-            GetComponentInChildren<Renderer>().material.color = new Color(247f / 255, 178f / 255, 165f / 255);
-            transform.localScale = new Vector3(0.425f, 0.425f, 0.425f);
+            GetComponentInChildren<Renderer>().material.color = new Color(156f / 255, 106f / 255, 97f / 255);
+            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             tag = "Player-Push";
         }
 
