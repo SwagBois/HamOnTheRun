@@ -186,6 +186,21 @@ GameObject:
   m_PrefabParentObject: {fileID: 1032224582333428, guid: 956f87fb5f94e3f41881eff61b0642f5,
     type: 2}
   m_PrefabInternal: {fileID: 1238380334}
+--- !u!208 &57421137
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 57421136}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!114 &57421142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1870,6 +1885,26 @@ Prefab:
       propertyPath: m_TagString
       value: Goal
       objectReference: {fileID: 0}
+    - target: {fileID: 4262285517790692, guid: 956f87fb5f94e3f41881eff61b0642f5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 33.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4029587354372866, guid: 956f87fb5f94e3f41881eff61b0642f5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4029587354372866, guid: 956f87fb5f94e3f41881eff61b0642f5, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083080141147344, guid: 956f87fb5f94e3f41881eff61b0642f5, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083080141147344, guid: 956f87fb5f94e3f41881eff61b0642f5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 956f87fb5f94e3f41881eff61b0642f5, type: 2}
   m_IsPrefabParent: 0
@@ -2292,6 +2327,21 @@ GameObject:
   m_PrefabParentObject: {fileID: 1895186793226120, guid: 956f87fb5f94e3f41881eff61b0642f5,
     type: 2}
   m_PrefabInternal: {fileID: 1238380334}
+--- !u!208 &1525334171
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1525334170}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!114 &1525334176
 MonoBehaviour:
   m_ObjectHideFlags: 0

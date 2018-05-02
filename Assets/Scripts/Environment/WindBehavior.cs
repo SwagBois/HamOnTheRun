@@ -21,7 +21,7 @@ public class WindBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void OnCollisionStay(Collision c)
     {
-        if (c.gameObject.tag == "Player" || c.gameObject.tag == "Crates")
+        if (c.gameObject.tag == "Player" || c.gameObject.tag == "Crates" || c.gameObject.tag == "Player-Push")
         {
             Rigidbody rb = c.gameObject.GetComponent<Rigidbody>();
             if (rb != null)
