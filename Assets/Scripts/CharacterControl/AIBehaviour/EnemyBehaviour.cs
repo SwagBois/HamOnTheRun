@@ -65,7 +65,7 @@ public class EnemyBehaviour : MonoBehaviour
                     RaycastHit hit;
                     if (Physics.Raycast(this.transform.position, deltaV, out hit))
                     {
-                        if (hit.transform.tag == "Player")
+                        if (hit.transform.tag == "Player" || hit.transform.tag == "Player-Push")
                         {
                             aiState = AIState.InterceptTarget;
                             followTarget();
@@ -136,7 +136,7 @@ public class EnemyBehaviour : MonoBehaviour
                 if (Physics.Raycast(this.transform.position, deltaV, out hit, target.GetComponent<CapsuleCollider>().radius * 1.5f))
                 {
                     // Future edits such that event trigger happens to state player has been captured and he looses health/losses game
-                    if (hit.transform.tag == "Player")
+                    if (hit.transform.tag == "Player" || hit.transform.tag == "Player-Push")
                     {
                         Debug.LogWarning("player captured");
                         CheckpointManager.Instance.CheckpointReset();
@@ -168,7 +168,7 @@ public class EnemyBehaviour : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(this.transform.position, deltaV, out hit))
                 {
-                    if (hit.transform.tag == "Player")
+                    if (hit.transform.tag == "Player" || hit.transform.tag == "Player-Push")
                     {
                         last_seen_target_pos = target.transform.position;
                         navMeshAgent.SetDestination(last_seen_target_pos);
