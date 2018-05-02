@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         //print(timer);
 
         // can only switch once every 4 seconds.
-        if (timer > 240 && Input.GetKey(KeyCode.X))
+        if (timer > 60 && Input.GetKey(KeyCode.X))
         {
             //pigs[index].GetComponentInChildren<MeshRenderer>().enabled = false;
             //pigs[index].SetActive(false);
@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
             GetComponentInChildren<Renderer>().material.color = new Color(0.8f, 0.389f, 0.727f, 0.8f);
             transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
             tag = "Player";
+			GetComponentInChildren<Rigidbody> ().mass = 1.0f;
             //GameObject leftWing = GameObject.Find("Left Wing").gameObject;
             //GameObject rightWing = GameObject.Find("Right Wing").gameObject;
             //leftWing.SetActive(false);
@@ -62,6 +63,7 @@ public class PlayerController : MonoBehaviour
             GetComponentInChildren<Renderer>().material.color = new Color(255f / 255, 192f / 255, 210f / 255);
             transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
             tag = "Player";
+			GetComponentInChildren<Rigidbody> ().mass = 1.0f;
             //GameObject leftWing = GameObject.Find("Left Wing").gameObject;
             //GameObject rightWing = GameObject.Find("Right Wing").gameObject;
             //leftWing.SetActive(true);

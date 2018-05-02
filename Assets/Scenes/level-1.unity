@@ -1932,6 +1932,21 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 28.06
       objectReference: {fileID: 0}
+    - target: {fileID: 54616344166846978, guid: 956f87fb5f94e3f41881eff61b0642f5,
+        type: 2}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54554553424706050, guid: 956f87fb5f94e3f41881eff61b0642f5,
+        type: 2}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 135835431668966722, guid: 956f87fb5f94e3f41881eff61b0642f5,
+        type: 2}
+      propertyPath: m_Radius
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 956f87fb5f94e3f41881eff61b0642f5, type: 2}
   m_IsPrefabParent: 0
