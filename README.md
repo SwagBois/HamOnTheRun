@@ -55,7 +55,7 @@ No external resources used
 
 ------------------------------------------------------------------------------------------
 
-Shahwaiz - Create Start Game Screen, Pause Menu Screen, Objectives Screen
+Shahwaiz - Create Start Game Screen, Pause Menu Screen, Objectives Screen.
 Kevin - 
 Ollie - 
 Edu - Code for AI behavior,Fan behavior and physicis, designer of level 1 and 3.
