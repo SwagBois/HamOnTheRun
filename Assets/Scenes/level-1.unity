@@ -945,6 +945,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f969f482f2d4d25b3cb68d198bc28d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!208 &545131672
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 545131665}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &606522551 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1492454470914532, guid: 3df57eb3b0c5b32468f1f85ff8538edd,
@@ -1199,6 +1214,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f969f482f2d4d25b3cb68d198bc28d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!208 &767838524
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 767838517}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &787024784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1971,6 +2001,31 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 23827488706645488, guid: 956f87fb5f94e3f41881eff61b0642f5,
+        type: 2}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: e06329ac1af1a442b82e1679c7d5f4bd, type: 2}
+    - target: {fileID: 23827488706645488, guid: 956f87fb5f94e3f41881eff61b0642f5,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 57ed6a9a581f9423fa84f38c4ee8699a, type: 2}
+    - target: {fileID: 23618280086945222, guid: 956f87fb5f94e3f41881eff61b0642f5,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 57ed6a9a581f9423fa84f38c4ee8699a, type: 2}
+    - target: {fileID: 23674695703741096, guid: 956f87fb5f94e3f41881eff61b0642f5,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 57ed6a9a581f9423fa84f38c4ee8699a, type: 2}
+    - target: {fileID: 23526598049348406, guid: 956f87fb5f94e3f41881eff61b0642f5,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 57ed6a9a581f9423fa84f38c4ee8699a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 956f87fb5f94e3f41881eff61b0642f5, type: 2}
   m_IsPrefabParent: 0
