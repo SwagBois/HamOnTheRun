@@ -31,4 +31,18 @@ public class WindBehavior : MonoBehaviour {
             }
         }
     }
+
+	// Update is called once per frame
+	void OnTriggerStay(Collider c)
+	{
+		if (c.tag == "Player" || c.tag == "Crates" || c.tag == "Player-Push")
+		{
+			Rigidbody rb = c.GetComponent<Rigidbody>();
+			if (rb != null)
+			{
+				rb.velocity = this.transform.up*fanSpeed*speed;
+				Debug.LogWarning(rb.velocity);
+			}
+		}
+	}
 }
