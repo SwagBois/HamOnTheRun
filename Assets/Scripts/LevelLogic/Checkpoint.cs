@@ -22,7 +22,7 @@ public class Checkpoint : MonoBehaviour
     // run portal teleport coroutine
     public void OnTriggerEnter( Collider c )
     {
-        if (!isTriggered && c.tag == "Player")
+		if (!isTriggered && (c.tag == "Player" || c.tag == "Player-Push"))
         {
             isTriggered = true;
             if (checkpointType == CheckpointType.END)

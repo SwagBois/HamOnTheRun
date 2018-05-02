@@ -72,6 +72,8 @@ public class PlayerController : MonoBehaviour
             GetComponentInChildren<Renderer>().material.color = new Color(156f / 255, 106f / 255, 97f / 255);
             transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             tag = "Player-Push";
+			GetComponentInChildren<Rigidbody> ().mass = 3.0f;
+
         }
 
         //print(index);
