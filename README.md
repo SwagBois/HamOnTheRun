@@ -26,10 +26,7 @@ No extra installations required other than Unity
 
 ------------------------------------------------------------------------------------------
 
-W - UP
-A - LEFT
-S - DOWN
-D - RIGHT
+Arrow Keys - Movement
 X - SWITCH CHARACTER
 C/Z - CHANGE CAMERA
 SPACE - JUMP
